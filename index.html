@@ -16,7 +16,8 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="weatherstyles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
     <script
       src="https://kit.fontawesome.com/cc74893158.js"
       crossorigin="anonymous"
@@ -36,25 +37,33 @@
 
         <div class="search">
           <input
-            type="text"
+            type="search"
             class="search-bar"
             placeholder="Enter location/city"
+            autofocus="on"
+            autocomplete="off"
+            id="city-input"
           />
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </div>
 
         <div class="weather maingrid">
           <div class="griditem">
             <h4 class="city">Nairobi</h4>
-            <div class="week day">Monday</div>
-            <div class="time">18:30pm</div>
-            <div class="temp">25°C</div>
+            <div class="weekday"></div>
+            <div class="time"></div>
+            <div class="temperature" id="temperature">
+              <span class="units">°C</span>
+            </div>
+
             <i class="fa-solid fa-cloud-rain"></i>
             <div class="description">Rainy</div>
           </div>
           <div class="griditem2">
-            <div class="humidity">Humidity:36%</div>
-            <div class="wind">Wind Speed:7km/h</div>
+            <div class="humidity">Humidity:<span id="humidity"></span>%</div>
+            <div class="wind">Wind Speed:<span id="wind"></span>km/h</div>
           </div>
         </div>
       </div>
@@ -112,6 +121,6 @@
         </div>
       </div>
     </div>
-    <script src="weather.js"></script>
+    <script src="src/index.js"></script>
   </body>
 </html>
