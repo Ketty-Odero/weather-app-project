@@ -1,5 +1,4 @@
-let weekDay = document.querySelector(".weekday");
-let time = document.querySelector(".time");
+let weekDay = document.querySelector("#weekday");
 let currentTime = new Date();
 let hours = currentTime.getHours();
 if (hours < 10) {
@@ -19,12 +18,12 @@ let days = [
   "Saturday"
 ];
 let day = days[currentTime.getDay()];
-weekDay.innerHTML = `${day}`;
-time.innerHTML = `${hours}:${minutes}`;
+weekDay.innerHTML = `${day} ${hours}:${minutes}`;
+
 
 function displayWeatherCondition(response) {
-  document.querySelector(".city").innerHTML = response.data.name;
-  document.querySelector(".temperature").innerHTML = Math.round(
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#humidity").innerHTML = Math.round(
@@ -33,8 +32,11 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector(".description").innerHTML =
+  document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+    let iconElement=document.querySelector("#icon")
+    iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt",response.data.weather[0].description);
 }
 
 function search(event) {
