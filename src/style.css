@@ -7,12 +7,21 @@ body {
   background: skyblue;
   font-family: "Open Sans", sans-serif;
 }
+
+h4 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
 .wrapper {
   background: powderblue;
   padding: 2em;
   border-radius: 30px;
-  width: 520px;
-  margin: 0 auto;
+  width: 600px;
+  margin: 30px auto;
 }
 
 .maingrid {
@@ -51,8 +60,27 @@ input.search-bar {
   font-size: 120%;
   width: calc(100%-100px);
 }
+.weather-temperature img {
+  margin-right: 10px;
+  height: 64px;
+  width: 64px;
+}
+
+.weather-temperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 600;
+}
+.weather-temperature.units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
+}
+
 .weather-forecast {
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   color: #000;
 }
