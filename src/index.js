@@ -83,14 +83,19 @@ function displayWeatherCondition(response) {
     iconElement.setAttribute("alt",response.data.weather[0].description);
     getForecast(response.data.coord);
 }
-
-function search(event) {
-  event.preventDefault();
-  let apiKey = "32915c315fc97b9c6cd118efe79e51b5";
-  let city = document.querySelector("#city-input").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
+function search(city){
+let apiKey = "32915c315fc97b9c6cd118efe79e51b5";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayWeatherCondition);
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+search("Nairobi");
+
 let searchButton = document.querySelector("button");
-searchButton.addEventListener("click", search);
+searchButton.addEventListener("click", handleSubmit);
 
